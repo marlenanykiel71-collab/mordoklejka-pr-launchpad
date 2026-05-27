@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -23,15 +23,16 @@ export function SiteHeader() {
         </Link>
         <nav className="hidden items-center gap-7 md:flex">
           {nav.map((n) => (
-            <Link
+            <NavLink
               key={n.to}
               to={n.to}
-              className="text-sm text-foreground/80 transition-colors hover:text-accent"
-              activeProps={{ className: "text-accent" }}
-              activeOptions={{ exact: n.to === "/" }}
+              end={n.to === "/"}
+              className={({ isActive }) =>
+                `text-sm transition-colors hover:text-accent ${isActive ? "text-accent" : "text-foreground/80"}`
+              }
             >
               {n.label}
-            </Link>
+            </NavLink>
           ))}
         </nav>
         <Link
@@ -40,11 +41,7 @@ export function SiteHeader() {
         >
           Umów konsultację
         </Link>
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden"
-          aria-label="Menu"
-        >
+        <button onClick={() => setOpen(!open)} className="md:hidden" aria-label="Menu">
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
@@ -52,15 +49,15 @@ export function SiteHeader() {
         <div className="border-t border-border bg-background md:hidden">
           <nav className="flex flex-col gap-1 px-6 py-4">
             {nav.map((n) => (
-              <Link
+              <NavLink
                 key={n.to}
                 to={n.to}
+                end={n.to === "/"}
                 onClick={() => setOpen(false)}
-                className="py-2 text-base"
-                activeProps={{ className: "text-accent" }}
+                className={({ isActive }) => `py-2 text-base ${isActive ? "text-accent" : ""}`}
               >
                 {n.label}
-              </Link>
+              </NavLink>
             ))}
           </nav>
         </div>
