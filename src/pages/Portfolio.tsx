@@ -1,18 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { PageHero } from "@/components/PageHero";
 import { ArrowUpRight } from "lucide-react";
-
-export const Route = createFileRoute("/portfolio")({
-  head: () => ({
-    meta: [
-      { title: "Portfolio — Mordoklejka PR" },
-      { name: "description", content: "Case studies i zrealizowane projekty PR." },
-    ],
-  }),
-  component: Portfolio,
-});
 
 const cases = [
   { client: "Lorem Brand", category: "FMCG · Launch", title: "Premiera produktu z zasięgiem 12 mln", stat: "+340% awareness" },
@@ -23,15 +12,11 @@ const cases = [
   { client: "Adipiscing", category: "Retail · Influencer", title: "Kampania influencerska", stat: "ROI 4.8×" },
 ];
 
-function Portfolio() {
+export default function Portfolio() {
   return (
     <div>
       <SiteHeader />
-      <PageHero
-        eyebrow="Portfolio"
-        title="Projekty, które mówią same za siebie."
-        subtitle="Lorem ipsum dolor sit amet — wybrane realizacje z ostatnich miesięcy."
-      />
+      <PageHero eyebrow="Portfolio" title="Projekty, które mówią same za siebie." subtitle="Lorem ipsum dolor sit amet — wybrane realizacje z ostatnich miesięcy." />
 
       <section className="mx-auto max-w-7xl px-6 py-24">
         <div className="grid gap-px bg-border md:grid-cols-2">

@@ -1,18 +1,8 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { PageHero } from "@/components/PageHero";
 import { Check } from "lucide-react";
-
-export const Route = createFileRoute("/cennik")({
-  head: () => ({
-    meta: [
-      { title: "Cennik — Mordoklejka PR" },
-      { name: "description", content: "Pakiety usług PR: Basic, Standard, Pro. Wycena indywidualna." },
-    ],
-  }),
-  component: Cennik,
-});
 
 const tiers = [
   {
@@ -39,28 +29,20 @@ const tiers = [
   },
 ];
 
-function Cennik() {
+export default function Cennik() {
   return (
     <div>
       <SiteHeader />
-      <PageHero
-        eyebrow="Cennik"
-        title="Trzy pakiety, jedna jakość."
-        subtitle="Lorem ipsum dolor sit amet. Wycena indywidualna po krótkiej rozmowie."
-      />
+      <PageHero eyebrow="Cennik" title="Trzy pakiety, jedna jakość." subtitle="Lorem ipsum dolor sit amet. Wycena indywidualna po krótkiej rozmowie." />
 
       <section className="mx-auto max-w-7xl px-6 py-24">
         <div className="grid gap-6 lg:grid-cols-3">
           {tiers.map((t) => (
             <div
               key={t.name}
-              className={`rounded-3xl border p-10 ${
-                t.featured ? "border-accent bg-ink text-cream" : "border-border bg-background"
-              }`}
+              className={`rounded-3xl border p-10 ${t.featured ? "border-accent bg-ink text-cream" : "border-border bg-background"}`}
             >
-              <div className={`text-xs uppercase tracking-widest ${t.featured ? "text-ember" : "text-accent"}`}>
-                {t.name}
-              </div>
+              <div className={`text-xs uppercase tracking-widest ${t.featured ? "text-ember" : "text-accent"}`}>{t.name}</div>
               <div className="mt-6 flex items-baseline gap-2">
                 <span className="font-display text-4xl">{t.price}</span>
                 <span className={`text-sm ${t.featured ? "text-cream/60" : "text-muted-foreground"}`}>{t.period}</span>
@@ -76,9 +58,7 @@ function Cennik() {
               </ul>
               <Link
                 to="/kontakt"
-                className={`mt-10 block rounded-full px-6 py-3 text-center text-sm ${
-                  t.featured ? "bg-ember text-cream" : "bg-foreground text-background"
-                } hover:opacity-90`}
+                className={`mt-10 block rounded-full px-6 py-3 text-center text-sm ${t.featured ? "bg-ember text-cream" : "bg-foreground text-background"} hover:opacity-90`}
               >
                 Wybierz {t.name}
               </Link>

@@ -1,17 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ArrowUpRight, Megaphone, Newspaper, ShieldAlert, PenLine, Hash, Leaf, Building2 } from "lucide-react";
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Mordoklejka — agencja PR" },
-      { name: "description", content: "Budujemy wizerunek, który działa. Strategia PR, media relations, content i PR kryzysowy." },
-    ],
-  }),
-  component: Home,
-});
 
 const services = [
   { icon: Megaphone, title: "Strategia PR", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing." },
@@ -23,12 +13,10 @@ const services = [
   { icon: Building2, title: "Public affairs", desc: "Lorem ipsum dolor sit amet consectetur adipiscing elit." },
 ];
 
-function Home() {
+export default function Home() {
   return (
     <div className="min-h-screen">
       <SiteHeader />
-
-      {/* Hero */}
       <section className="relative overflow-hidden border-b border-border">
         <div className="mx-auto max-w-7xl px-6 pb-24 pt-20 md:pt-32">
           <div className="text-xs uppercase tracking-[0.25em] text-accent">Agencja PR · Warszawa</div>
@@ -53,7 +41,6 @@ function Home() {
         <div className="pointer-events-none absolute -right-32 top-20 hidden h-[500px] w-[500px] rounded-full bg-accent/10 blur-3xl md:block" />
       </section>
 
-      {/* Stats */}
       <section className="border-b border-border">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-border md:grid-cols-4">
           {[
@@ -70,7 +57,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Services */}
       <section className="mx-auto max-w-7xl px-6 py-24">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
@@ -92,7 +78,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Quote */}
       <section className="border-y border-border bg-secondary/40">
         <div className="mx-auto max-w-5xl px-6 py-24 text-center">
           <p className="font-display text-3xl italic leading-tight md:text-5xl">
@@ -105,7 +90,6 @@ function Home() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="mx-auto max-w-7xl px-6 py-24">
         <div className="rounded-3xl bg-ink p-12 text-cream md:p-20">
           <h2 className="max-w-2xl font-display text-4xl md:text-6xl">

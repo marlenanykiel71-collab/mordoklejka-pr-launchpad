@@ -1,17 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { PageHero } from "@/components/PageHero";
-
-export const Route = createFileRoute("/uslugi")({
-  head: () => ({
-    meta: [
-      { title: "Usługi — Mordoklejka PR" },
-      { name: "description", content: "Strategia PR, media relations, PR kryzysowy, content, social media, CSR/ESG, public affairs." },
-    ],
-  }),
-  component: Uslugi,
-});
 
 const services = [
   { t: "Strategia PR", d: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Opracowanie spójnego planu komunikacji dla marki, produktu lub osoby publicznej.", points: ["Audyt wizerunku", "Cele i KPI", "Mapa działań"] },
@@ -23,15 +12,11 @@ const services = [
   { t: "Public affairs", d: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Relacje z instytucjami i liderami opinii.", points: ["Stakeholder mapping", "Lobbying", "Komunikacja publiczna"] },
 ];
 
-function Uslugi() {
+export default function Uslugi() {
   return (
     <div>
       <SiteHeader />
-      <PageHero
-        eyebrow="Usługi"
-        title="Pełen zakres działań PR."
-        subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      />
+      <PageHero eyebrow="Usługi" title="Pełen zakres działań PR." subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
 
       <section className="mx-auto max-w-7xl px-6 py-24">
         <div className="divide-y divide-border">

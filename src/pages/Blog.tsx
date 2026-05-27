@@ -1,17 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { PageHero } from "@/components/PageHero";
-
-export const Route = createFileRoute("/blog")({
-  head: () => ({
-    meta: [
-      { title: "Blog — Mordoklejka PR" },
-      { name: "description", content: "Artykuły, komentarze eksperckie i analizy trendów PR." },
-    ],
-  }),
-  component: Blog,
-});
 
 const posts = [
   { date: "12.05.2026", cat: "Trendy", title: "Lorem ipsum dolor sit amet, consectetur adipiscing", excerpt: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
@@ -22,15 +11,11 @@ const posts = [
   { date: "20.02.2026", cat: "Social", title: "Influencer marketing w 2026 — co naprawdę działa", excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed." },
 ];
 
-function Blog() {
+export default function Blog() {
   return (
     <div>
       <SiteHeader />
-      <PageHero
-        eyebrow="Blog"
-        title="Wiedza, którą dzielimy się chętnie."
-        subtitle="Lorem ipsum dolor sit amet. Komentarze, analizy i trendy w komunikacji."
-      />
+      <PageHero eyebrow="Blog" title="Wiedza, którą dzielimy się chętnie." subtitle="Lorem ipsum dolor sit amet. Komentarze, analizy i trendy w komunikacji." />
 
       <section className="mx-auto max-w-7xl px-6 py-24">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
@@ -42,9 +27,7 @@ function Blog() {
                 </div>
               </div>
               <div className="mt-5 text-xs text-muted-foreground">{p.date}</div>
-              <h3 className="mt-3 font-display text-2xl leading-tight transition-colors group-hover:text-accent">
-                {p.title}
-              </h3>
+              <h3 className="mt-3 font-display text-2xl leading-tight transition-colors group-hover:text-accent">{p.title}</h3>
               <p className="mt-3 text-sm text-muted-foreground">{p.excerpt}</p>
             </article>
           ))}

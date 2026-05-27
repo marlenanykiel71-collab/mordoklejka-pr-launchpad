@@ -1,17 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { PageHero } from "@/components/PageHero";
-
-export const Route = createFileRoute("/o-nas")({
-  head: () => ({
-    meta: [
-      { title: "O nas — Mordoklejka PR" },
-      { name: "description", content: "Poznaj agencję Mordoklejka — misja, wartości i zespół." },
-    ],
-  }),
-  component: ONas,
-});
 
 const team = [
   { name: "Anna Lorem", role: "Head of PR" },
@@ -20,15 +9,11 @@ const team = [
   { name: "Tomasz Sit", role: "Content Director" },
 ];
 
-function ONas() {
+export default function ONas() {
   return (
     <div>
       <SiteHeader />
-      <PageHero
-        eyebrow="O nas"
-        title="Agencja, która rozumie wizerunek."
-        subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      />
+      <PageHero eyebrow="O nas" title="Agencja, która rozumie wizerunek." subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
 
       <section className="mx-auto grid max-w-7xl gap-16 px-6 py-24 md:grid-cols-2">
         <div>
